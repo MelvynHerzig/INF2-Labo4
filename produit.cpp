@@ -30,13 +30,15 @@ Produit::Produit(unsigned no, const std::string& libelle, double prix) : no(no),
 {
    if (prix < PRIX_MINIMUM)
    {
-      std::string errMessage = "le prix doit etre >= ";
-      errMessage += PRIX_MINIMUM;
-      errMessage += " cts !";
+      std::string errMessage = (std::string) "le prix doit etre >= "   +
+                               (std::string) std::to_string(PRIX_MINIMUM) +
+                               (std::string) + " cts !";
       throw PrixNonValide(errMessage);
    }
    this->prix = prix;
 }
+
+Produit::Produit(const Produit& produit) : no(produit.no), libelle(produit.libelle), prix(produit.prix) {}
 
 void Produit::setPrix(double prix)
 {

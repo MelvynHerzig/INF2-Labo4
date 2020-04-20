@@ -21,12 +21,14 @@
 class Produit {
    friend std::ostream& operator<<(std::ostream& os, const Produit& rhs);
    friend bool operator==(const Produit& lhs, const Produit& rhs);
+
 public:
    // Produit();
    Produit(unsigned no, const std::string& libelle, double prix);
+   Produit(const Produit& produit);
    void setPrix(double prix);
    Produit& operator=(Produit& rhs);
-   bool operator==(const Produit& rhs) const;
+
 
 private:
    const unsigned no;
