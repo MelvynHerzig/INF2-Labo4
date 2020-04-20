@@ -5,5 +5,4 @@ set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wconversion -Wsign-conve
 
 set(CMAKE_CXX_STANDARD 11)
 
-add_executable(Inf2_labo4 main_labo_04.cpp collection_g.h exceptions.h produit.h produit.cpp)
-add_executable(Inf2_labo4 main_labo_04.cpp collection_g.h exceptions.h produit.h collectionImpl_g.h)
+add_executable(Inf2_labo4 main_labo_04.cpp collection_g.h exceptions.h produit.h produit.cpp collectionImpl_g.h)

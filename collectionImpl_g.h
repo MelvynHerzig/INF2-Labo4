@@ -5,19 +5,7 @@
 #include "collection_g.h"
 #include "exceptions.h"
 
-template<typename T, template<typename, typename> class Conteneur>
-std::ostream& operator<<(std::ostream& os, Collection<T, Conteneur> c)
-{
-   os << "[";
-   for(int i = 0; i < c.size(); ++i)
-   {
-      if(i != 0) os << ", ";
 
-      os << c.get(i);
-   }
-   os << "] (taille = " << c.taille() << ")";
-   return os;
-}
 
 template<typename T, template<typename, typename> class Conteneur>
 void Collection<T, Conteneur>::ajouter(T item)
@@ -44,7 +32,7 @@ template<typename T, template<typename, typename> class Conteneur>
 bool Collection<T, Conteneur>::contient(T itemATrouver)
 {
    return std::find(conteneur.begin(), conteneur.end(), itemATrouver)
-          == conteneur.end();
+          != conteneur.end();
 }
 
 template<typename T, template<typename, typename> class Conteneur>
@@ -57,6 +45,13 @@ template<typename T, template<typename, typename> class Conteneur>
 size_t Collection<T, Conteneur>::taille()
 {
    return conteneur.size();
+}
+
+template<typename T, template<typename, typename> class Conteneur>
+        template<typename Fonction>
+void Collection<T, Conteneur>::parcourir(Fonction f)
+{
+   std::for_each(conteneur.begin(), conteneur.end(), f);
 }
 
 

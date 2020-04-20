@@ -18,10 +18,26 @@
 template <typename T, template<typename, typename> class Conteneur>
 class Collection;
 
+template<typename T, template<typename, typename> class Conteneur>
+std::ostream& operator<< (std::ostream& os, Collection<T, Conteneur> c)
+{
+   os << "[";
+   for (size_t i = 0; i < c.taille(); ++i)
+   {
+      if (i != 0)
+      { os << ", "; }
+
+      os << c.get(i);
+   }
+   os << "]";
+   return os;
+}
+
+
 template <typename T, template<typename, typename> class Conteneur>
 class Collection
 {
-   friend std::ostream& operator<<(std::ostream& os,
+   friend std::ostream& operator<< <T, Conteneur>(std::ostream& os,
                                    Collection<T, Conteneur> c);
 public:
    void ajouter(T item);
@@ -29,8 +45,13 @@ public:
    bool contient(T itemATrouver);
    void vider();
    size_t taille();
+
+   template<typename Fonction>
+   void parcourir(Fonction f);
+
 private:
    Conteneur<T, std::allocator<T>> conteneur;
+
 };
 
 #include "collectionImpl_g.h"
