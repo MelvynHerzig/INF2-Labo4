@@ -77,6 +77,7 @@ int main() {
               << c.contient(p2) << endl
               << noboolalpha;
          {
+            // TODO: re-align
             class Majoration
             {
             public:

@@ -14,15 +14,16 @@
  */
 
 #include <iostream>
+#include <iomanip>
 #include "produit.h"
 #include "exceptions.h"
 
 const double Produit::PRIX_MINIMUM = 0.05;
 
-// Produit::Produit() {}
-
 std::ostream& operator<<(std::ostream& os, const Produit& rhs)
 {
+   const short PRECISION_PRIX = 2;
+   os << std::fixed << std::setprecision(PRECISION_PRIX);
    return os << "(" << rhs.no << ", \"" << rhs.libelle << "\", " << rhs.prix << ")";
 }
 
@@ -31,7 +32,7 @@ Produit::Produit(unsigned no, const std::string& libelle, double prix) : no(no),
    if (prix < PRIX_MINIMUM)
    {
       std::string errMessage = (std::string) "le prix doit etre >= " +
-                               (std::string) std::to_string(PRIX_MINIMUM) +
+                               (std::string) std::to_string((unsigned) (PRIX_MINIMUM * 100)) +
                                (std::string) +" cts !";
       throw PrixNonValide(errMessage);
    }

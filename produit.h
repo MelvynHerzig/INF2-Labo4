@@ -23,13 +23,11 @@ class Produit {
    friend bool operator==(const Produit& lhs, const Produit& rhs);
 
 public:
-   // Produit();
    Produit(unsigned no, const std::string& libelle, double prix);
    Produit(const Produit& produit) = default;
    void setPrix(double prix);
    double getPrix() const;
    Produit& operator=(Produit& rhs);
-
 
 private:
    const unsigned no;
