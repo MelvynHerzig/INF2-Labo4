@@ -33,7 +33,6 @@ std::ostream& operator<< (std::ostream& os, Collection<T, Conteneur> c)
    return os;
 }
 
-
 template <typename T, template<typename, typename> class Conteneur>
 class Collection
 {
@@ -44,16 +43,18 @@ public:
    Collection() = default;
 
    void ajouter(T item);
-   T& get(size_t index) const;
-   bool contient(T itemATrouver);
+   T get(size_t index) const;
+   T& get(size_t index);
+   bool contient(T itemATrouver) const;
    void vider();
-   size_t taille();
+   size_t taille() const;
 
    template<typename Fonction>
    void parcourir(Fonction f);
 
 private:
    Conteneur<T, std::allocator<T>> conteneur;
+
 };
 
 #include "collectionImpl_g.h"

@@ -35,7 +35,7 @@ int main() {
       cout << "------------------------------------------------------------" << endl;
       cout << endl;
    }
-   
+
    {
       cout << "------------------------------------------------------------" << endl;
       cout << "Test sur Produit :" << endl;
@@ -76,15 +76,15 @@ int main() {
               << c.contient(p1) << endl
               << c.contient(p2) << endl
               << noboolalpha;
-         {  
+         {
             class Majoration
             {
             public:
                explicit Majoration (int pourcent): pourcent(pourcent) {};
-               void operator() (double& base) { base = pourcent * base; }
-
+               void operator() (Produit& p) { double copiePrix = p.getPrix();
+                  p.setPrix(( 1.0 + pourcent / 100.0 ) * copiePrix);}
             private:
-               int pourcent;
+               double pourcent;
             };
             // On parcourt la collection en majorant le prix de chacun
             // des produits de 10%
@@ -99,7 +99,7 @@ int main() {
       cout << "------------------------------------------------------------" << endl;
       cout << endl;
    }
-   
+
    return EXIT_SUCCESS;
 }
 

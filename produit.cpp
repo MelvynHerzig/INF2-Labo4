@@ -30,9 +30,9 @@ Produit::Produit(unsigned no, const std::string& libelle, double prix) : no(no),
 {
    if (prix < PRIX_MINIMUM)
    {
-      std::string errMessage = (std::string) "le prix doit etre >= "   +
+      std::string errMessage = (std::string) "le prix doit etre >= " +
                                (std::string) std::to_string(PRIX_MINIMUM) +
-                               (std::string) + " cts !";
+                               (std::string) +" cts !";
       throw PrixNonValide(errMessage);
    }
    this->prix = prix;
@@ -45,7 +45,8 @@ void Produit::setPrix(double prix)
 
 Produit& Produit::operator=(Produit& rhs)
 {
-   if(&rhs == this) return *this;
+   if (&rhs == this)
+   { return *this; }
 
    (unsigned&) no = rhs.no;
    (std::string&) libelle = rhs.libelle;
@@ -53,6 +54,12 @@ Produit& Produit::operator=(Produit& rhs)
    return *this;
 }
 
-bool operator==(const Produit& lhs, const Produit& rhs) {
+bool operator==(const Produit& lhs, const Produit& rhs)
+{
    return lhs.no == rhs.no && lhs.libelle == rhs.libelle && lhs.prix == rhs.prix;
+}
+
+double Produit::getPrix() const
+{
+   return prix;
 }
