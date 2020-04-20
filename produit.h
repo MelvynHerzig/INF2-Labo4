@@ -25,7 +25,7 @@ class Produit {
 public:
    // Produit();
    Produit(unsigned no, const std::string& libelle, double prix);
-   Produit(const Produit& produit);
+   Produit(const Produit& produit) = default;
    void setPrix(double prix);
    Produit& operator=(Produit& rhs);
 

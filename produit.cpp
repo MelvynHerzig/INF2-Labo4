@@ -38,8 +38,6 @@ Produit::Produit(unsigned no, const std::string& libelle, double prix) : no(no),
    this->prix = prix;
 }
 
-Produit::Produit(const Produit& produit) : no(produit.no), libelle(produit.libelle), prix(produit.prix) {}
-
 void Produit::setPrix(double prix)
 {
    this->prix = prix;
