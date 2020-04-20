@@ -5,8 +5,6 @@
 #include "collection_g.h"
 #include "exceptions.h"
 
-
-
 template<typename T, template<typename, typename> class Conteneur>
 void Collection<T, Conteneur>::ajouter(T item)
 {
@@ -14,7 +12,7 @@ void Collection<T, Conteneur>::ajouter(T item)
 }
 
 template<typename T, template<typename, typename> class Conteneur>
-T& Collection<T, Conteneur>::get(size_t index)
+T& Collection<T, Conteneur>::get(size_t index) const
 {
    try
    {

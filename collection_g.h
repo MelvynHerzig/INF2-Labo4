@@ -40,8 +40,11 @@ class Collection
    friend std::ostream& operator<< <T, Conteneur>(std::ostream& os,
                                    Collection<T, Conteneur> c);
 public:
+
+   Collection() = default;
+
    void ajouter(T item);
-   T& get(size_t index);
+   T& get(size_t index) const;
    bool contient(T itemATrouver);
    void vider();
    size_t taille();
@@ -51,7 +54,6 @@ public:
 
 private:
    Conteneur<T, std::allocator<T>> conteneur;
-
 };
 
 #include "collectionImpl_g.h"
