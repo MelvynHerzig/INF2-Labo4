@@ -77,10 +77,18 @@ int main() {
               << c.contient(p2) << endl
               << noboolalpha;
          {  
-            // TODO: < à compléter 1 >
+            class Majoration
+            {
+            public:
+               explicit Majoration (int pourcent): pourcent(pourcent) {};
+               void operator() (double& base) { base = pourcent * base; }
+
+            private:
+               int pourcent;
+            };
             // On parcourt la collection en majorant le prix de chacun
             // des produits de 10%
-            // TODO: c.parcourir(< à compléter 2 >);
+            c.parcourir( Majoration(10) );
             cout << c << " (taille = " << c.taille() << ")" << endl;      
          }
          c.vider();
