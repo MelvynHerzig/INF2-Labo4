@@ -42,3 +42,17 @@ void Produit::setPrix(double prix)
 {
    this->prix = prix;
 }
+
+Produit& Produit::operator=(Produit& rhs)
+{
+   if(&rhs == this) return *this;
+
+   (unsigned&) no = rhs.no;
+   (std::string&) libelle = rhs.libelle;
+   (double&) prix = rhs.prix;
+   return *this;
+}
+
+bool operator==(const Produit& lhs, const Produit& rhs) {
+   return lhs.no == rhs.no && lhs.libelle == rhs.libelle && lhs.prix == rhs.prix;
+}
