@@ -1,9 +1,9 @@
 /*
  -----------------------------------------------------------------------------------
- Laboratoire : <nn>
- Fichier     : Labo_XX_Crausaz.cpp
+ Laboratoire : 04
+ Fichier     : produit.h
  Auteur(s)   : Nicolas Crausaz
- Date        : <jj.mm.aaaa>
+ Date        : 20.04.2020
 
  But         : <à compléter>
 
@@ -15,5 +15,21 @@
 
 #ifndef INF2_LABO4_PRODUIT_H
 #define INF2_LABO4_PRODUIT_H
+
+#include <string>
+
+class Produit {
+   friend std::ostream& operator<<(std::ostream& os, const Produit& rhs);
+public:
+   // Produit();
+   Produit(unsigned no, const std::string& libelle, double prix);
+   void setPrix(double prix);
+
+private:
+   const unsigned no;
+   const std::string libelle;
+   double prix;
+   static const double PRIX_MINIMUM;
+};
 
 #endif //INF2_LABO4_PRODUIT_H
