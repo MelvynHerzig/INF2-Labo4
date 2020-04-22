@@ -2,8 +2,8 @@
  -----------------------------------------------------------------------------------
  Laboratoire : 04
  Fichier     : exceptions.h
- Auteur(s)   : Nicolas Crausaz, Forestier Quentin, Herzig Melvyn
- Date        : 20.04.2020
+ Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
+ Date        : 22.04.2020
 
  But         : Implémenter deux classes exceptions pour:
 

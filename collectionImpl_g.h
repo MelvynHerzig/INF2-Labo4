@@ -1,3 +1,18 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : collectionImpl_g.h
+ Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
+ Date        : 22.04.2020
+
+ But         : 
+
+ Remarque(s) : 
+
+ Compilateur : MinGW-g++ 6.3.0
+ -----------------------------------------------------------------------------------
+ */
+
 #ifndef INF2_LABO4_COLLECTIONIMPL_G_H
 #define INF2_LABO4_COLLECTIONIMPL_G_H
 

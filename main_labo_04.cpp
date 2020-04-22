@@ -1,3 +1,18 @@
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : main_labo_04.cpp
+ Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
+ Date        : 22.04.2020
+
+ But         : <à compléter>
+
+ Remarque(s) : <à compléter>
+
+ Compilateur : MinGW-g++ 6.3.0
+ -----------------------------------------------------------------------------------
+ */
+
 #include <cstdlib>
 #include <iostream>
 #include <list>

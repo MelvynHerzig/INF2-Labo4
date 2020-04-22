@@ -2,8 +2,8 @@
  -----------------------------------------------------------------------------------
  Laboratoire : 04
  Fichier     : produit.h
- Auteur(s)   : Nicolas Crausaz
- Date        : 20.04.2020
+ Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
+ Date        : 22.04.2020
 
  But         : <à compléter>
 
@@ -18,7 +18,8 @@
 
 #include <string>
 
-class Produit {
+class Produit
+{
    friend std::ostream& operator<<(std::ostream& os, const Produit& rhs);
    friend bool operator==(const Produit& lhs, const Produit& rhs);
 

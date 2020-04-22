@@ -2,8 +2,8 @@
  -----------------------------------------------------------------------------------
  Laboratoire : 04
  Fichier     : collection_g.h
- Auteur(s)   : Nicolas Crausaz
- Date        : <jj.mm.aaaa>
+ Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
+ Date        : 22.04.2020
 
  But         : <à compléter>
 
