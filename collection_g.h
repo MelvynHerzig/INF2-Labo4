@@ -5,7 +5,13 @@
  Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
  Date        : 22.04.2020
 
- But         : <à compléter>
+ But         : Implémenter une classe permettant de stocker des objets quelconques
+               avec une type de conteneur choisi.
+
+                - Vérifier l'appartenance d'un objet
+                - Savoir le nombre d'objet
+                - Accéder/modifier un objet en position choisie
+                - Une fonction qui applique une modification à tous les objets.
 
  Remarque(s) : <à compléter>
 

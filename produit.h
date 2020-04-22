@@ -5,9 +5,14 @@
  Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
  Date        : 22.04.2020
 
- But         : <à compléter>
+ But         : Implémenter une classe produit minimale
+                  - Construction
+                  - get/set du prix
+                  - operator=
+                  - operator<< (amitié)
+                  - operator== (amitié)
 
- Remarque(s) : <à compléter>
+ Remarque(s) : /
 
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
@@ -16,7 +21,7 @@
 #ifndef INF2_LABO4_PRODUIT_H
 #define INF2_LABO4_PRODUIT_H
 
-#include <string>
+#include <string> //std::string
 
 class Produit
 {

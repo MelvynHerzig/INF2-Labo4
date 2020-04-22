@@ -5,19 +5,15 @@
  Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
  Date        : 22.04.2020
 
- But         : Implémentation de la classe Produit défini par
-               un numéro, un libellé et un prix
-
- Remarque(s) : -
-
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
  */
 
-#include <iostream>
-#include <iomanip>
+
 #include "produit.h"
-#include "exceptions.h"
+#include <iostream>     //std::cout
+#include <iomanip>      //std::fixed, std::setprecision
+#include "exceptions.h" //PrixNonValide
 
 const double Produit::PRIX_MINIMUM = 0.05;
 
