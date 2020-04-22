@@ -5,9 +5,10 @@
  Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
  Date        : 22.04.2020
 
- But         : <à compléter>
+ But         : Implémentation de la classe Produit défini par
+               un numéro, un libellé et un prix
 
- Remarque(s) : <à compléter>
+ Remarque(s) : -
 
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
@@ -46,8 +47,7 @@ void Produit::setPrix(double prix)
 
 Produit& Produit::operator=(Produit& rhs)
 {
-   if (&rhs == this)
-   { return *this; }
+   if (&rhs == this) return *this;
 
    (unsigned&) no = rhs.no;
    (std::string&) libelle = rhs.libelle;
@@ -60,7 +60,7 @@ bool operator==(const Produit& lhs, const Produit& rhs)
    return lhs.no == rhs.no && lhs.libelle == rhs.libelle && lhs.prix == rhs.prix;
 }
 
-double Produit::getPrix() const
+double Produit::getPrix() const noexcept
 {
    return prix;
 }

@@ -27,7 +27,7 @@ public:
    Produit(unsigned no, const std::string& libelle, double prix);
    Produit(const Produit& produit) = default;
    void setPrix(double prix);
-   double getPrix() const;
+   double getPrix() const noexcept;
    Produit& operator=(Produit& rhs);
 
 private:
