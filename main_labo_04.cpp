@@ -5,26 +5,33 @@
  Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
  Date        : 22.04.2020
 
- But         : <à compléter>
+ But         : Tester le fonctionnement d'un Produit.
 
- Remarque(s) : <à compléter>
+               Tester de manipuler des Collections avec plusieurs types de données:
+                  - Int
+                  - Produit
+               Et différents conteneurs:
+                  - Vector
+                  - List
+
+ Remarque(s) : /
 
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
  */
 
-#include <cstdlib>
-#include <iostream>
-#include <list>
-#include <vector>
-#include "collection_g.h"
-#include "exceptions.h"
-#include "produit.h"
+#include <cstdlib>         //std::EXIT_SUCCESS
+#include <iostream>        //std::cout
+#include <list>            //std::list
+#include <vector>          //std::vector
+#include "collection_g.h"  //Collection, operator<<
+#include "exceptions.h"    //PrixNonValide, IndiceNonValide
+#include "produit.h"       //Produit, SetPrix, GetPrix, operator=
 
 using namespace std;
 
-int main() {
-
+int main()
+{
    {
       cout << "------------------------------------------------------------" << endl;
       cout << "Test sur Collection<char, vector> :" << endl;
@@ -115,7 +122,6 @@ int main() {
       cout << "------------------------------------------------------------" << endl;
       cout << endl;
    }
-
    return EXIT_SUCCESS;
 }
 

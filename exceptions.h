@@ -19,8 +19,8 @@
 #ifndef INF2_LABO4_EXCEPTIONS_H
 #define INF2_LABO4_EXCEPTIONS_H
 
-#include <stdexcept>
-#include <string>
+#include <stdexcept> //std::logic_error
+#include <string>    //std::string
 
 class IndiceNonValide : public std::logic_error
 {

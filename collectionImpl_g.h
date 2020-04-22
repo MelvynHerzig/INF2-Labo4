@@ -5,10 +5,6 @@
  Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
  Date        : 22.04.2020
 
- But         : 
-
- Remarque(s) : 
-
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
  */
@@ -16,9 +12,9 @@
 #ifndef INF2_LABO4_COLLECTIONIMPL_G_H
 #define INF2_LABO4_COLLECTIONIMPL_G_H
 
-#include <algorithm>
 #include "collection_g.h"
-#include "exceptions.h"
+#include <algorithm>       //std::find, std::for_each,
+#include "exceptions.h"    //IndiceNonValide
 
 template<typename T, template <typename, typename> class Conteneur>
 Collection<T, Conteneur>::Collection(const Conteneur<T, std::allocator<T>>& c)
@@ -54,6 +50,7 @@ T& Collection<T, Conteneur>::get(size_t index)
    }
 }
 
+<<<<<<< HEAD
 template<typename T, template<typename, typename> class Conteneur>
 T Collection<T, Conteneur>::get(size_t index) const
 {
@@ -77,11 +74,12 @@ T Collection<T, Conteneur>::get(size_t index) const
    }
 }
 
+=======
+>>>>>>> master
 template<typename T, template<typename, typename> class Conteneur>
 bool Collection<T, Conteneur>::contient(const T& itemATrouver) const
 {
-   return std::find(conteneur.begin(), conteneur.end(), itemATrouver)
-          != conteneur.end();
+   return std::find(conteneur.begin(), conteneur.end(), itemATrouver)!= conteneur.end();
 }
 
 template<typename T, template<typename, typename> class Conteneur>
