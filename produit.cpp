@@ -15,7 +15,7 @@
 #include <iomanip>      // std::fixed, std::setprecision
 #include "exceptions.h" // PrixNonValide
 
-// Fonction non membre
+// Affiche une erreur et throw une exception de type PrixNonValide
 void afficheEtThrowErreurPrix(const std::string& source, double PRIX_MINIMUM);
 
 
@@ -71,10 +71,13 @@ bool operator==(const Produit& lhs, const Produit& rhs)
    return lhs.no == rhs.no && lhs.libelle == rhs.libelle && lhs.prix == rhs.prix;
 }
 
-void afficheEtThrowErreurPrix(const std::string& source, double PRIX_MINIMUM) {
+// Fonction non membre
+void afficheEtThrowErreurPrix(const std::string& source, double PRIX_MINIMUM)
+{
    std::cout << source << std::endl;
    std::string errMessage = (std::string) "le prix doit etre >= " +
                             std::to_string((unsigned) (PRIX_MINIMUM * 100)) +
                             (std::string) + " cts !";
+
    throw PrixNonValide(errMessage);
 }
