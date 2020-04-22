@@ -21,7 +21,7 @@
 #ifndef INF2_LABO4_PRODUIT_H
 #define INF2_LABO4_PRODUIT_H
 
-#include <string> //std::string
+#include <string> // std::string
 
 class Produit
 {
