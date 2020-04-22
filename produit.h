@@ -11,6 +11,7 @@
                   - operator=
                   - operator<< (amitié)
                   - operator== (amitié)
+                  - validation prix (amitié)
 
  Remarque(s) : /
 
@@ -25,14 +26,15 @@
 
 class Produit
 {
+   friend void verificationPrix(double prix, const std::string& source);
    friend std::ostream& operator<<(std::ostream& os, const Produit& rhs);
    friend bool operator==(const Produit& lhs, const Produit& rhs);
 
 public:
    Produit(unsigned no, const std::string& libelle, double prix);
    Produit(const Produit& produit) = default;
-   void setPrix(double prix);
    double getPrix() const noexcept;
+   void setPrix(double prix);
    Produit& operator=(Produit& rhs);
 
 private:

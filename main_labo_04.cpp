@@ -8,7 +8,7 @@
  But         : Tester le fonctionnement d'un Produit.
 
                Tester de manipuler des Collections avec plusieurs types de données:
-                  - Int
+                  - char
                   - Produit
                Et différents conteneurs:
                   - Vector
@@ -99,19 +99,22 @@ int main()
               << c.contient(p2) << endl
               << noboolalpha;
          {
-            // TODO: re-align
             class Majoration
             {
             public:
                explicit Majoration (int pourcent): pourcent(pourcent) {};
-               void operator() (Produit& p) { double copiePrix = p.getPrix();
-                  p.setPrix(( 1.0 + pourcent / 100.0 ) * copiePrix);}
+
+               void operator() (Produit& p)
+               {
+                  double copiePrix = p.getPrix();
+                  p.setPrix((1.0 + pourcent / 100.0) * copiePrix);
+               }
             private:
                double pourcent;
             };
             // On parcourt la collection en majorant le prix de chacun
             // des produits de 10%
-            c.parcourir( Majoration(10) );
+            c.parcourir(Majoration(10));
             cout << c << " (taille = " << c.taille() << ")" << endl;      
          }
          c.vider();

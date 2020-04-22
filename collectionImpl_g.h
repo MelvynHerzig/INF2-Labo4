@@ -13,35 +13,26 @@
 #define INF2_LABO4_COLLECTIONIMPL_G_H
 
 #include "collection_g.h"
-#include <algorithm>       //std::find, std::for_each,
-#include "exceptions.h"    //IndiceNonValide
+#include <algorithm>    // std::find, std::for_each
+#include <iterator>     // std::advance
+#include "exceptions.h" // IndiceNonValide
 
-template<typename T, template <typename, typename> class Conteneur>
+template <typename T, template <typename, typename> class Conteneur>
 Collection<T, Conteneur>::Collection(const Conteneur<T, std::allocator<T>>& c)
-: conteneur(c)
-{}
+        : conteneur(c) {}
 
-template<typename T, template<typename, typename> class Conteneur>
-void Collection<T, Conteneur>::ajouter(const T& item)
+template <typename T, template <typename, typename> class Conteneur>
+void Collection<T, Conteneur>::ajouter(const T& element)
 {
-   conteneur.push_back(item);
+   conteneur.push_back(element);
 }
 
-template<typename T, template<typename, typename> class Conteneur>
+template <typename T, template <typename, typename> class Conteneur>
 T& Collection<T, Conteneur>::get(size_t index)
 {
    try
    {
-      if (index >= taille() || index < 0)
-      {
-         throw IndiceNonValide("n doit etre strictement plus petit que "
-                               "collection.size()");
-      }
-
-      auto it = conteneur.begin();
-      std::advance(it, index);
-
-      return *it;
+      return (T&) baseGet(*this, index);
    }
    catch (const IndiceNonValide& e)
    {
@@ -50,53 +41,60 @@ T& Collection<T, Conteneur>::get(size_t index)
    }
 }
 
-template<typename T, template<typename, typename> class Conteneur>
-T Collection<T, Conteneur>::get(size_t index) const
+template <typename T, template <typename, typename> class Conteneur>
+const T& Collection<T, Conteneur>::get(size_t index) const
 {
    try
    {
-      if (index >= taille() || index < 0)
-      {
-         throw IndiceNonValide("n doit etre strictement plus petit que "
-                               "collection.size()");
-      }
-
-      auto it = conteneur.begin();
-      std::advance(it, index);
-
-      return *it;
+      return baseGet(*this, index);
    }
-   catch (IndiceNonValide& e)
+   catch (const IndiceNonValide& e)
    {
       std::cout << "Erreur dans Collection::get : " << std::endl;
       throw e;
    }
 }
 
-template<typename T, template<typename, typename> class Conteneur>
-bool Collection<T, Conteneur>::contient(const T& itemATrouver) const
+template <typename T, template <typename, typename> class Conteneur>
+bool Collection<T, Conteneur>::contient(const T& element) const
 {
-   return std::find(conteneur.begin(), conteneur.end(), itemATrouver)!= conteneur.end();
+   return std::find(conteneur.begin(), conteneur.end(), element) != conteneur.end();
 }
 
-template<typename T, template<typename, typename> class Conteneur>
+// Le conteneur doit implémenter la méthode clear()
+template <typename T, template <typename, typename> class Conteneur>
 void Collection<T, Conteneur>::vider() noexcept
 {
    conteneur.clear();
 }
 
-template<typename T, template<typename, typename> class Conteneur>
+// Le conteneur doit implémenter la méthode size()
+template <typename T, template <typename, typename> class Conteneur>
 size_t Collection<T, Conteneur>::taille() const noexcept
 {
    return conteneur.size();
 }
 
-template<typename T, template<typename, typename> class Conteneur>
-template<typename UnaryFunction>
+template <typename T, template <typename, typename> class Conteneur>
+template <typename UnaryFunction>
 void Collection<T, Conteneur>::parcourir(UnaryFunction function)
 {
    std::for_each(conteneur.begin(), conteneur.end(), function);
 }
 
+template <typename T, template <typename, typename> class Conteneur>
+const T& baseGet (const Collection<T, Conteneur>& collection, size_t index)
+{
+   if (index >= collection.taille())
+   {
+      throw IndiceNonValide("n doit etre strictement plus petit que "
+                            "collection.size()");
+   }
 
-#endif //INF2_LABO4_COLLECTIONIMPL_G_H
+   auto it = collection.conteneur.begin();
+   std::advance(it, index);
+
+   return *it;
+}
+
+#endif // INF2_LABO4_COLLECTIONIMPL_G_H

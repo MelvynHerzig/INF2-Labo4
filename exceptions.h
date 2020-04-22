@@ -7,8 +7,8 @@
 
  But         : Implémenter deux classes exceptions pour:
 
-               -  La manipulation de prix.
-               -  L'utilisation d'incides.
+               -  La vérification de prix.
+               -  L'utilisation d'indices.
 
  Remarque(s) : Les deux classes héritent de std::logic_error
 
@@ -19,8 +19,8 @@
 #ifndef INF2_LABO4_EXCEPTIONS_H
 #define INF2_LABO4_EXCEPTIONS_H
 
-#include <stdexcept> //std::logic_error
-#include <string>    //std::string
+#include <stdexcept> // std::logic_error
+#include <string>    // std::string
 
 class IndiceNonValide : public std::logic_error
 {
@@ -36,4 +36,4 @@ public:
    explicit PrixNonValide (const char* s)        : logic_error(s) {};
 };
 
-#endif //INF2_LABO4_EXCEPTIONS_H
+#endif // INF2_LABO4_EXCEPTIONS_H

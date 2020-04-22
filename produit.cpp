@@ -9,17 +9,26 @@
  -----------------------------------------------------------------------------------
  */
 
-
 #include "produit.h"
 #include <iostream>     // std::cout
 #include <iomanip>      // std::fixed, std::setprecision
 #include "exceptions.h" // PrixNonValide
 
-// Affiche une erreur et throw une exception de type PrixNonValide
-void afficheEtThrowErreurPrix(const std::string& source, double PRIX_MINIMUM);
-
-
 const double Produit::PRIX_MINIMUM = 0.05;
+
+// Vérification du prix, lance une erreur PrixNonValide en cas d'erreur
+void verificationPrix(double prix, const std::string& source)
+{
+   if (prix < Produit::PRIX_MINIMUM)
+   {
+      std::cout << source << std::endl;
+      std::string errMessage = (std::string) "le prix doit etre >= " +
+                               std::to_string((unsigned) (Produit::PRIX_MINIMUM * 100)) +
+                               (std::string) + " cts !";
+
+      throw PrixNonValide(errMessage);
+   }
+}
 
 // Surcharge opérateur de flux <<
 std::ostream& operator<<(std::ostream& os, const Produit& rhs)
@@ -29,14 +38,24 @@ std::ostream& operator<<(std::ostream& os, const Produit& rhs)
    return os << "(" << rhs.no << ", \"" << rhs.libelle << "\", " << rhs.prix << ")";
 }
 
+// Opérateur d'égalité
+bool operator==(const Produit& lhs, const Produit& rhs)
+{
+   return lhs.no == rhs.no && lhs.libelle == rhs.libelle && lhs.prix == rhs.prix;
+}
+
 // Constructeur
 Produit::Produit(unsigned no, const std::string& libelle, double prix) : no(no), libelle(libelle)
 {
-   if (prix < PRIX_MINIMUM)
+   try
    {
-      afficheEtThrowErreurPrix("Erreur dans Produit::Produit : ", PRIX_MINIMUM);
+      verificationPrix(prix, "Erreur dans Produit::Produit : ");
+      this->prix = prix;
    }
-   this->prix = prix;
+   catch (const PrixNonValide& e)
+   {
+      throw e;
+   }
 }
 
 // Accesseurs
@@ -47,11 +66,15 @@ double Produit::getPrix() const noexcept
 
 void Produit::setPrix(double prix)
 {
-   if (prix < PRIX_MINIMUM)
+   try
    {
-      afficheEtThrowErreurPrix("Erreur dans Produit::setPrix : ", PRIX_MINIMUM);
+      verificationPrix(prix, "Erreur dans Produit::setPrix : ");
+      this->prix = prix;
    }
-   this->prix = prix;
+   catch (const PrixNonValide& e)
+   {
+      throw e;
+   }
 }
 
 // Opérateur d'affectation
@@ -61,23 +84,7 @@ Produit& Produit::operator=(Produit& rhs)
 
    (unsigned&) no = rhs.no;
    (std::string&) libelle = rhs.libelle;
-   (double&) prix = rhs.prix;
+   prix = rhs.prix;
+
    return *this;
-}
-
-// Opérateur d'égalité
-bool operator==(const Produit& lhs, const Produit& rhs)
-{
-   return lhs.no == rhs.no && lhs.libelle == rhs.libelle && lhs.prix == rhs.prix;
-}
-
-// Fonction non membre
-void afficheEtThrowErreurPrix(const std::string& source, double PRIX_MINIMUM)
-{
-   std::cout << source << std::endl;
-   std::string errMessage = (std::string) "le prix doit etre >= " +
-                            std::to_string((unsigned) (PRIX_MINIMUM * 100)) +
-                            (std::string) + " cts !";
-
-   throw PrixNonValide(errMessage);
 }
