@@ -50,7 +50,6 @@ T& Collection<T, Conteneur>::get(size_t index)
    }
 }
 
-<<<<<<< HEAD
 template<typename T, template<typename, typename> class Conteneur>
 T Collection<T, Conteneur>::get(size_t index) const
 {
@@ -74,8 +73,6 @@ T Collection<T, Conteneur>::get(size_t index) const
    }
 }
 
-=======
->>>>>>> master
 template<typename T, template<typename, typename> class Conteneur>
 bool Collection<T, Conteneur>::contient(const T& itemATrouver) const
 {
