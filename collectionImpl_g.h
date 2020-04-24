@@ -20,7 +20,7 @@
 
 
 // ------------------------
-//    Méthodes amies
+//    Fonctions amies
 // ------------------------
 
 // Opérateur de flux pour la collection
@@ -133,9 +133,5 @@ void Collection<T, Conteneur>::parcourir(UnaryFunction function)
                   conteneur.begin(),
                   function);
 }
-
-//
-
-
 
 #endif // INF2_LABO4_COLLECTIONIMPL_G_H

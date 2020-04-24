@@ -21,13 +21,13 @@
  -------------------------------------------------------------------------------
  */
 
-#include <cstdlib>         //std::EXIT_SUCCESS
-#include <iostream>        //std::cout
-#include <list>            //std::list
-#include <vector>          //std::vector
-#include "collection_g.h"  //Collection, operator<<
-#include "exceptions.h"    //PrixNonValide, IndiceNonValide
-#include "produit.h"       //Produit, SetPrix, GetPrix, operator=
+#include <cstdlib>         // std::EXIT_SUCCESS
+#include <iostream>        // std::cout
+#include <list>            // std::list
+#include <vector>          // std::vector
+#include "collection_g.h"  // Collection, operator<<
+#include "exceptions.h"    // PrixNonValide, IndiceNonValide
+#include "produit.h"       // Produit, SetPrix, GetPrix, operator=
 
 using namespace std;
 
