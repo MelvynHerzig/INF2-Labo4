@@ -57,7 +57,8 @@ bool operator==(const Produit& lhs, const Produit& rhs)
 // ------------------------
 
 // Constructeur
-Produit::Produit(unsigned no, const std::string& libelle, double prix) : no(no), libelle(libelle)
+Produit::Produit(unsigned no, const std::string& libelle, double prix)
+   : no(no), libelle(libelle)
 {
    try
    {

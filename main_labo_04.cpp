@@ -1,5 +1,5 @@
 /*
- -----------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
  Laboratoire : 04
  Fichier     : main_labo_04.cpp
  Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
@@ -7,7 +7,8 @@
 
  But         : Tester le fonctionnement d'un Produit.
 
-               Tester de manipuler des Collections avec plusieurs types de données:
+               Tester de manipuler des Collections avec plusieurs types
+               de données:
                   - char
                   - Produit
                Et différents conteneurs:
@@ -17,7 +18,7 @@
  Remarque(s) : /
 
  Compilateur : MinGW-g++ 6.3.0
- -----------------------------------------------------------------------------------
+ -------------------------------------------------------------------------------
  */
 
 #include <cstdlib>         //std::EXIT_SUCCESS
