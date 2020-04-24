@@ -3,7 +3,7 @@
  Laboratoire : 04
  Fichier     : collection_g.h
  Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
- Date        : 22.04.2020
+ Date        : 24.04.2020
 
  But         : Implémenter une classe permettant de stocker des objets quelconques
                avec une type de conteneur choisi.
@@ -30,16 +30,7 @@ template <typename T, template <typename, typename> class Conteneur>
 class Collection;
 
 template <typename T, template <typename, typename> class Conteneur>
-std::ostream& operator<<(std::ostream& os, const Collection<T, Conteneur>& c)
-{
-   os << "[";
-   for (size_t i = 0; i < c.taille(); ++i)
-   {
-      if (i != 0) os << ", ";
-      os << c.get(i);
-   }
-   return os << "]";
-}
+std::ostream& operator<<(std::ostream& os, const Collection<T, Conteneur>& c);
 
 template <typename T, template <typename, typename> class Conteneur>
 const T& baseGet (const Collection<T, Conteneur>& collection, size_t index);
