@@ -104,14 +104,17 @@ int main()
             public:
                explicit Majoration (int pourcent): pourcent(pourcent) {};
 
-               void operator() (Produit& p)
+               Produit& operator() (Produit& p)
                {
                   double copiePrix = p.getPrix();
                   p.setPrix((1.0 + pourcent / 100.0) * copiePrix);
+
+                  return p;
                }
             private:
                double pourcent;
             };
+
             // On parcourt la collection en majorant le prix de chacun
             // des produits de 10%
             c.parcourir(Majoration(10));

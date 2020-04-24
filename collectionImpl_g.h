@@ -79,7 +79,7 @@ template <typename T, template <typename, typename> class Conteneur>
 template <typename UnaryFunction>
 void Collection<T, Conteneur>::parcourir(UnaryFunction function)
 {
-   std::for_each(conteneur.begin(), conteneur.end(), function);
+   std::transform(conteneur.begin(), conteneur.end(), conteneur.begin(), function);
 }
 
 template <typename T, template <typename, typename> class Conteneur>
