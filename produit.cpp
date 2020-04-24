@@ -3,7 +3,7 @@
  Laboratoire : 04
  Fichier     : produit.cpp
  Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
- Date        : 22.04.2020
+ Date        : 24.04.2020
 
  Compilateur : MinGW-g++ 6.3.0
  -----------------------------------------------------------------------------------
@@ -14,7 +14,15 @@
 #include <iomanip>      // std::fixed, std::setprecision
 #include "exceptions.h" // PrixNonValide
 
+// ------------------------
+//    Membres statiques
+// ------------------------
+
 const double Produit::PRIX_MINIMUM = 0.05;
+
+// ------------------------
+//    Fonctions amies
+// ------------------------
 
 // Vérification du prix, lance une erreur PrixNonValide en cas d'erreur
 void verificationPrix(double prix, const std::string& source)
@@ -43,6 +51,10 @@ bool operator==(const Produit& lhs, const Produit& rhs)
 {
    return lhs.no == rhs.no && lhs.libelle == rhs.libelle && lhs.prix == rhs.prix;
 }
+
+// ------------------------
+//    Méthodes publiques
+// ------------------------
 
 // Constructeur
 Produit::Produit(unsigned no, const std::string& libelle, double prix) : no(no), libelle(libelle)

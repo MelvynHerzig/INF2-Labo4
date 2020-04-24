@@ -3,7 +3,7 @@
  Laboratoire : 04
  Fichier     : main_labo_04.cpp
  Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
- Date        : 22.04.2020
+ Date        : 24.04.2020
 
  But         : Tester le fonctionnement d'un Produit.
 

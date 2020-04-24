@@ -3,7 +3,7 @@
  Laboratoire : 04
  Fichier     : produit.h
  Auteur(s)   : Nicolas Crausaz, Melvyn Herzig, Quentin Forestier
- Date        : 22.04.2020
+ Date        : 24.04.2020
 
  But         : Implémenter une classe produit minimale
                   - Construction
